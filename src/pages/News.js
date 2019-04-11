@@ -1,3 +1,8 @@
 import React from "react";
 
-export default () => <div>News</div>;
+import NewsContainer from "../containers/NewsContainer";
+
+const News = () => {
+  return <NewsContainer />;
+};
+export default News;
