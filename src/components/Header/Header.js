@@ -17,6 +17,9 @@ const Header = () => {
       <li>
         <ToolbarLink to="/profile">Profile</ToolbarLink>
       </li>
+      <li>
+        <ToolbarLink to="/login">Login</ToolbarLink>
+      </li>
     </ul>
   );
 };
