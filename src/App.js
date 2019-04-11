@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import News from './pages/News';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
+import { PrivateRoute } from "./components/PrivateRoute";
 
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/news" component={News} />
           <Route path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
+          <PrivateRoute path="/profile" component={Profile} />
           <Route component={NotFound} />
         </Switch>
       </div>
