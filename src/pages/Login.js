@@ -2,20 +2,20 @@ import React, { Component } from "react";
 
 class Login extends Component {
   state = {
-    userValue: "",
-    passwordValue: ""
+    user: "",
+    password: ""
   };
-  onUserChangeHandler = e => {
-    this.setState({ userValue: e.target.value });
+
+  onChangeHandler = e => {
+    const {target: {value, name}} = e;
+    this.setState({ [name]: value });
   };
-  onPasswordChangeHandler = e => {
-    this.setState({ passwordValue: e.target.value });
-  };
+  
   onSubmit = e => {
     e.preventDefault();
     if (
-      this.state.userValue === "Admin" &&
-      this.state.passwordValue === "12345"
+      this.state.user === "Admin" &&
+      this.state.password === "12345"
     ) {
       localStorage.setItem("isAdmin", true);
     } else {
@@ -29,15 +29,17 @@ class Login extends Component {
         <input
           type="text"
           placeholder="User Name"
-          value={this.state.userValue}
-          onChange={this.onUserChangeHandler}
+          name="user"
+          value={this.state.user}
+          onChange={this.onChangeHandler}
         />
 
         <input
           type="password"
           placeholder="Password"
-          value={this.state.passwordValue}
-          onChange={this.onPasswordChangeHandler}
+          name="password"
+          value={this.state.password}
+          onChange={this.onChangeHandler}
         />
 
         <button type="submit">Login</button>
