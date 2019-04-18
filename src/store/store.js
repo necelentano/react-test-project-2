@@ -1,8 +1,13 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
+import logger from "redux-logger";
 
-import { reducer } from "./reducer";
+import { newsReducer } from "./reducers/newsReducer";
 
-const middleWare = applyMiddleware(thunk);
+const middleWare = applyMiddleware(thunk, logger);
 
-export const store = createStore(reducer, middleWare);
+const rootReducer = combineReducers({
+    news: newsReducer
+  });
+
+export const store = createStore(rootReducer, middleWare);

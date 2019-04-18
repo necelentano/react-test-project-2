@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import NewsList from "../components/NewsList/NewsList";
-import { fetchPosts } from "../store/actions";
+import { fetchPosts } from "../store/actions/newsActions";
 
 class NewsContainer extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class NewsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts
+    posts: state.news.posts
   };
 };
 

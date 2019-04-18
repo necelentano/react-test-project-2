@@ -2,7 +2,7 @@ import {
     FETCH_POSTS_REQUEST,
     FETCH_POSTS_SUCCESS,
     FETCH_POSTS_FAILURE
-  } from "./constants";
+  } from "../constants";
   
   const initialState = {
     isFetching: false,
@@ -10,7 +10,7 @@ import {
     errorMassage: ""
   };
   
-  export const reducer = (state = initialState, action) => {
+  export const newsReducer = (state = initialState, action) => {
     switch (action.type) {
       case FETCH_POSTS_REQUEST: {
         return {
