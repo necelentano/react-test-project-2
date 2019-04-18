@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { login } from "../store/actions/authActions";
 
 class Login extends Component {
   state = {
-    user: "",
+    username: "",
     password: ""
   };
 
@@ -13,14 +16,8 @@ class Login extends Component {
   
   onSubmit = e => {
     e.preventDefault();
-    if (
-      this.state.user === "Admin" &&
-      this.state.password === "12345"
-    ) {
-      localStorage.setItem("isAdmin", true);
-    } else {
-      localStorage.setItem("isAdmin", false);
-    }
+    const { username, password } = this.state;
+    this.props.login(username, password);
   };
 
   render() {
@@ -29,7 +26,7 @@ class Login extends Component {
         <input
           type="text"
           placeholder="User Name"
-          name="user"
+          name="username"
           value={this.state.user}
           onChange={this.onChangeHandler}
         />
@@ -47,4 +44,10 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth.isLogged
+  }
+}
+export default connect(mapStateToProps, { login })(Login);
