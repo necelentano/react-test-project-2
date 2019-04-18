@@ -6,7 +6,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props => {
-        if (JSON.parse(localStorage.getItem("isAdmin")) === true) {
+        if (JSON.parse(localStorage.getItem("isLogged")) === true) {
           return <Component {...props} />;
         } else {
           return (
