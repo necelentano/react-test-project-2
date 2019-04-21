@@ -5,27 +5,26 @@ import {
     LOGOUT
   } from "../constants";
   
-  import { loginUser, logoutUser } from "../../services/services";
+  import { loginUser } from "../../services/services";
   
   export const login = (username, password) => dispatch => {
-    dispatch(request());
-    loginUser(username, password);
-    if (JSON.parse(localStorage.getItem("isLogged"))) {
-      dispatch(success());
+    dispatch(request(username));
+    const isAuth = loginUser(username, password);
+    if (isAuth) {
+      dispatch(success(username));
     } else dispatch(failure());
   };
-  const request = () => {
-    return { type: LOGIN_REQUEST };
+  const request = username => {
+    return { type: LOGIN_REQUEST, payload: username };
   };
-  const success = () => {
-    return { type: LOGIN_SUCCESS };
+  const success = username => {
+    return { type: LOGIN_SUCCESS, payload: username };
   };
   const failure = () => {
     return { type: LOGIN_FAILURE };
   };
   
   export const logout = () => {
-    logoutUser();
     return { type: LOGOUT };
   };
   
