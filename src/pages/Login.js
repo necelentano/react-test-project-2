@@ -21,7 +21,15 @@ class Login extends Component {
   };
 
   render() {
-    return (
+    const isLogged = this.props.isLogged;
+    const LoggedInElement = (
+      <div>
+        <h2>You are logged in.</h2>
+        <h2>Username: {this.props.username}</h2>
+      </div>
+    );
+
+    return isLogged ? LoggedInElement : (
       <form onSubmit={this.onSubmit}>
         <input
           type="text"
@@ -47,7 +55,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth.isLogged
+    isLogged: state.auth.isLogged,
+    username: state.auth.username
   }
 }
 export default connect(mapStateToProps, { login })(Login);
