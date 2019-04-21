@@ -6,7 +6,9 @@ import { fetchPosts } from "../store/actions/newsActions";
 
 class NewsContainer extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    if(this.props.posts.length === 0) {
+      this.props.fetchPosts();
+    }
   }
   render() {
     return <NewsList posts={this.props.posts} />;
