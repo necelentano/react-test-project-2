@@ -1,12 +1,7 @@
 export const loginUser = (username, password) => {
     if (username === "Admin" && password === "12345") {
-      localStorage.setItem("isLogged", true);
+      return true;
     } else {
-      localStorage.setItem("isLogged", false);
+      return false;
     }
   };
-  
-export const logoutUser = () => {
-    localStorage.setItem("isLogged", false);
-  };
-  
