@@ -7,7 +7,7 @@ import Profile from './pages/Profile';
 import News from './pages/News';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import { PrivateRoute } from "./components/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 class App extends Component {
