@@ -18,11 +18,13 @@
 
 Документацию React начал почитывать в январе 2019, до этого читал статьи смотрел видео на YouTube. На момент выполнения задания сделал один учебный проект на React.
 
-Документацию Redux начал читать в феврале 2019. До этого на практике его не использовал. В задании опирался на [примеры из документации](https://github.com/rajdee/redux-in-russian/blob/master/docs/advanced/AsyncActions.md).
+Документацию Redux начал читать в феврале 2019. До этого задания на практике его не использовал. В задании опирался на [примеры из документации](https://github.com/rajdee/redux-in-russian/blob/master/docs/advanced/AsyncActions.md) и этот [гайд](http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example).
 
-С маршрутизатором React Router до этого задания знаком не был. Вся реализация с PrivateRoute взята из этого примера [reacttraining.com](https://reacttraining.com/react-router/web/example/auth-workflow)
+С маршрутизатором React Router до этого задания знаком не был. Вся реализация с PrivateRoute взята из этого [gist](https://gist.github.com/rcanepa/b4ce0dff8d85b357504e04b03e69ac66)
 
-[Онлайн превью проекта](https://codesandbox.io/s/0qzyp6m8pn)
+Смотрел разные реализации по синхронизации Redux хранилища с localStorage. Выбрал redux-persist. Хороший гайд – [The Definitive Guide to Redux Persist](https://blog.reactnativecoach.com/the-definitive-guide-to-redux-persist-84738167975)
+
+## [Онлайн превью проекта](https://codesandbox.io/s/zxll02jwpl)
 
 ## Запуск проекта локально
 
