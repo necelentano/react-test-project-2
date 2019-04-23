@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import NewsList from "../components/NewsList/NewsList";
 import { fetchPosts } from "../store/actions/newsActions";
 
-class NewsContainer extends Component {
+class News extends Component {
   componentDidMount() {
     if(this.props.posts.length === 0) {
       this.props.fetchPosts();
@@ -24,4 +24,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { fetchPosts }
-)(NewsContainer);
+)(News);
