@@ -6,18 +6,19 @@ import { fetchPosts } from "../store/actions/newsActions";
 
 class News extends Component {
   componentDidMount() {
-    if(this.props.posts.length === 0) {
       this.props.fetchPosts();
-    }
   }
   render() {
-    return <NewsList posts={this.props.posts} />;
+    const { posts, isFetching } = this.props;
+    const Loader = () => <h2 style={{ color: "red" }}>Loading news ...</h2>;
+    return isFetching ? <Loader /> : <NewsList posts={posts} />;
   }
 }
 
 const mapStateToProps = state => {
   return {
-    posts: state.news.posts
+    posts: state.news.posts,
+    isFetching: state.news.isFetching
   };
 };
 
