@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 import NewsList from "../components/NewsList/NewsList";
 import { fetchPosts } from "../store/actions/newsActions";
@@ -13,6 +14,12 @@ class News extends Component {
     const Loader = () => <h2 style={{ color: "red" }}>Loading news ...</h2>;
     return isFetching ? <Loader /> : <NewsList posts={posts} />;
   }
+}
+
+News.propTypes = {
+  posts: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  fetchPosts: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {

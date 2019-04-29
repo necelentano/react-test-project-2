@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import PropTypes from 'prop-types';
+
 import ToolbarLink from "./ToolbarLink/ToolbarLink";
 
 import { connect } from "react-redux";
@@ -40,6 +42,11 @@ class Header extends Component {
     );
   }
 };
+
+Header.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => {
   return {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Profile = props => {
     return (
@@ -9,4 +10,8 @@ const Profile = props => {
     );
   };
 
-  export default Profile;
+Profile.propTypes = {
+  username: PropTypes.string.isRequired
+}
+
+export default Profile;

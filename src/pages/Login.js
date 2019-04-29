@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 import { login } from "../store/actions/authActions";
 
@@ -51,6 +52,11 @@ class Login extends Component {
       </form>
     );
   }
+}
+
+Login.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => {
