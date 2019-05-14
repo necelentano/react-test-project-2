@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 import { login } from "../store/actions/authActions";
@@ -23,9 +24,7 @@ class Login extends Component {
 
   render() {
     const { isLogged, isLoginFail} = this.props;
-    const LoggedInElement = (
-      <div><h2>Login Page</h2></div>
-    );
+    const LoggedInRedirect = <Redirect to="/profile" />;
 
     const LoggedInFail = (
       <div>
@@ -33,7 +32,7 @@ class Login extends Component {
       </div>
     );
 
-    return isLogged ? LoggedInElement : (
+    return isLogged ? LoggedInRedirect : (
       <form onSubmit={this.onSubmit}>
         <input
           type="text"
