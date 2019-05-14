@@ -8,6 +8,7 @@ import {
   const initialState = {
     isLoging: false,
     isLogged: false,
+    isLoginFail: null,
     username: ''
   };
   export const authReducer = (state = initialState, action) => {
@@ -24,7 +25,7 @@ import {
           isLogged: true,
           username: action.payload };
       case LOGIN_FAILURE:
-        return {};
+        return { isLoginFail: true };
       case LOGOUT:
         return {
           isLoging: false,

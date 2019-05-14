@@ -22,11 +22,14 @@ class Login extends Component {
   };
 
   render() {
-    const isLogged = this.props.isLogged;
+    const { isLogged, isLoginFail} = this.props;
     const LoggedInElement = (
+      <div><h2>Login Page</h2></div>
+    );
+
+    const LoggedInFail = (
       <div>
-        <h2>You are logged in.</h2>
-        <h2>Username: {this.props.username}</h2>
+        <h2 style={{ color: "red" }}>Incorrect username or password.</h2>
       </div>
     );
 
@@ -49,6 +52,7 @@ class Login extends Component {
         />
 
         <button type="submit">Login</button>
+        {isLoginFail && LoggedInFail}
       </form>
     );
   }
@@ -56,13 +60,13 @@ class Login extends Component {
 
 Login.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  username: PropTypes.string.isRequired
+  isLoginFail: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => {
   return {
     isLogged: state.auth.isLogged,
-    username: state.auth.username
+    isLoginFail: state.auth.isLoginFail
   }
 }
 export default connect(mapStateToProps, { login })(Login);
