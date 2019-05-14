@@ -25,9 +25,14 @@ import {
           isLogged: true,
           username: action.payload };
       case LOGIN_FAILURE:
-        return { isLoginFail: true };
+        return { 
+          isLogged: false, 
+          isLoginFail: true,
+          username: '' 
+        };
       case LOGOUT:
         return {
+          isLoginFail: null,
           isLoging: false,
           isLogged: false,
           username: ''
